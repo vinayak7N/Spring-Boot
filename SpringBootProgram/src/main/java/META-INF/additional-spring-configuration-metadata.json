@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "api_doc_url",
+  "type": "java.lang.String",
+  "description": "A description for 'api_doc_url'"
+}]}
