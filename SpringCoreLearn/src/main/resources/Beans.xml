@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="car" class="model.Car">
+    </bean>
+    <bean id="bike" class="model.Bike">
+    </bean>
+    <!--<bean id="student" class="model.Student">
+        <property name="id" value="101"/>
+        <property name="name" value="Vinayak Nair"/>
+        <property name="address" value="India"/>
+    </bean>
+    <bean id="student2" class="model.Student" p:id="102" p:name="Harry" p:address="Australia"></bean>-->
+
+    <bean id="student1" class="model.Student">
+        <property name="id" value="101"/>
+        <property name="name" value="Bill"/>
+        <property name="address">
+            <list>
+                <value>Delhi</value>
+                <value>India</value>
+            </list>
+        </property>
+        <property name="phones">
+            <set>
+                <value>1010101010</value>
+                <value>9090909090</value>
+            </set>
+        </property>
+        <property name="courses">
+            <map>
+                <entry key="Java" value="Java full stack course"/>
+                <entry key="JavaScript" value="JS full course"/>
+                <entry key="Python" value="Django course"/>
+            </map>
+        </property>
+    </bean>
+</beans>
