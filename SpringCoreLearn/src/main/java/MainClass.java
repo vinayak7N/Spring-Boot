@@ -2,6 +2,7 @@ import model.ClassTeacher;
 import model.Student;
 import model.Vehicle;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainClass {
@@ -9,7 +10,7 @@ public class MainClass {
 
     public static void main(String[] args) {
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
         Vehicle vehicle = (Vehicle) context.getBean("bike");
         vehicle.drive();
 
@@ -23,5 +24,6 @@ public class MainClass {
 
         ClassTeacher mathTeacher = context.getBean("mathTeacher",ClassTeacher.class);
         System.out.println(mathTeacher);
+        context.registerShutdownHook();
     }
 }

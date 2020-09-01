@@ -1,8 +1,11 @@
 package model;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
 import java.util.Set;
 
-public class ClassTeacher {
+public class ClassTeacher implements InitializingBean, DisposableBean {
 
     private int id;
     private String name;
@@ -47,5 +50,17 @@ public class ClassTeacher {
                 ", name='" + name + '\'' +
                 ", students=" + students +
                 '}';
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("Init method called....");
+        this.name="Helen";
+        System.out.println("Name updated inside init...");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("destroy method called....");
     }
 }
