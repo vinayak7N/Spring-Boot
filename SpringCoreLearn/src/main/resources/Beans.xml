@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
-       xmlns="http://www.springframework.org/schema/beans"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns="http://www.springframework.org/schema/beans" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
     <bean id="car" class="model.Car">
     </bean>
@@ -37,5 +37,40 @@
                 <entry key="Python" value="Django course"/>
             </map>
         </property>
+    </bean>
+
+    <bean id="student2" class="model.Student">
+        <property name="id" value="102"/>
+        <property name="name" value="Kate"/>
+        <property name="address">
+            <list>
+                <value>Pune</value>
+                <value>India</value>
+            </list>
+        </property>
+        <property name="phones">
+            <set>
+                <value>8989898989</value>
+                <value>2323232323</value>
+            </set>
+        </property>
+        <property name="courses">
+            <map>
+                <entry key="React" value="React JS course"/>
+                <entry key="Angular" value="Angular 4 full course"/>
+                <entry key="Node" value="Node Js course"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="mathTeacher" class="model.ClassTeacher">
+        <constructor-arg name="id" value="901"/>
+        <constructor-arg name="name" value="Elizabeth"/>
+        <constructor-arg>
+        <set>
+            <ref bean="student1"/>
+            <ref bean="student2"/>
+        </set>
+        </constructor-arg>
     </bean>
 </beans>

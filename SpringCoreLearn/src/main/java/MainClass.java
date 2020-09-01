@@ -1,3 +1,4 @@
+import model.ClassTeacher;
 import model.Student;
 import model.Vehicle;
 import org.springframework.context.ApplicationContext;
@@ -19,5 +20,8 @@ public class MainClass {
 
         Student student1 = context.getBean("student1",Student.class);
         System.out.println(student1);
+
+        ClassTeacher mathTeacher = context.getBean("mathTeacher",ClassTeacher.class);
+        System.out.println(mathTeacher);
     }
 }
